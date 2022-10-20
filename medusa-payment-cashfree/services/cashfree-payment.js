@@ -18,20 +18,20 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2["default"])(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
-  (0, _inherits2["default"])(ManualPaymentService, _PaymentService);
-  var _super = _createSuper(ManualPaymentService);
-  function ManualPaymentService() {
-    (0, _classCallCheck2["default"])(this, ManualPaymentService);
+var CashfreePaymentService = /*#__PURE__*/function (_PaymentService) {
+  (0, _inherits2["default"])(CashfreePaymentService, _PaymentService);
+  var _super = _createSuper(CashfreePaymentService);
+  function CashfreePaymentService() {
+    (0, _classCallCheck2["default"])(this, CashfreePaymentService);
     return _super.call(this);
   }
 
   /**
    * Returns the currently held status.
    * @param {object} paymentData - payment method data from cart
-   * @returns {string} the status of the payment
+   * @return {string} the status of the payment
    */
-  (0, _createClass2["default"])(ManualPaymentService, [{
+  (0, _createClass2["default"])(CashfreePaymentService, [{
     key: "getStatus",
     value: function () {
       var _getStatus = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(paymentData) {
@@ -56,7 +56,7 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
     }() /**
          * Creates a manual payment with status "pending"
          * @param {object} cart - cart to create a payment for
-         * @returns {object} an object with staus
+         * @return {object} an object with staus
          */
   }, {
     key: "createPayment",
@@ -67,7 +67,7 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 return _context2.abrupt("return", {
-                  status: "pending"
+                  status: 'pending'
                 });
               case 1:
               case "end":
@@ -83,7 +83,7 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
     }() /**
          * Retrieves payment
          * @param {object} data - the data of the payment to retrieve
-         * @returns {Promise<object>} returns data
+         * @return {Promise<object>} returns data
          */
   }, {
     key: "retrievePayment",
@@ -107,7 +107,7 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
       return retrievePayment;
     }() /**
          * Updates the payment status to authorized
-         * @returns {Promise<{ status: string, data: object }>} result with data and status
+         * @return {Promise<{ status: string, data: object }>} result with data and status
          */
   }, {
     key: "authorizePayment",
@@ -118,9 +118,9 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 return _context4.abrupt("return", {
-                  status: "authorized",
+                  status: 'authorized',
                   data: {
-                    status: "authorized"
+                    status: 'authorized'
                   }
                 });
               case 1:
@@ -137,7 +137,7 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
     }() /**
          * Noop, simply returns existing data.
          * @param {object} sessionData - payment session data.
-         * @returns {object} same data
+         * @return {object} same data
          */
   }, {
     key: "updatePayment",
@@ -163,7 +163,7 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
          .
          * @param {object} sessionData - payment session data.
          * @param {object} update - payment session update data.
-         * @returns {object} existing data merged with update data
+         * @return {object} existing data merged with update data
          */
   }, {
     key: "updatePaymentData",
@@ -209,7 +209,7 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
     }() /**
          * Updates the payment status to captured
          * @param {object} paymentData - payment method data from cart
-         * @returns {object} object with updated status
+         * @return {object} object with updated status
          */
   }, {
     key: "capturePayment",
@@ -220,7 +220,7 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
             switch (_context8.prev = _context8.next) {
               case 0:
                 return _context8.abrupt("return", {
-                  status: "captured"
+                  status: 'captured'
                 });
               case 1:
               case "end":
@@ -236,7 +236,7 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
     }() /**
          * Returns the data currently held in a status
          * @param {object} paymentData - payment method data from cart
-         * @returns {object} the current data
+         * @return {object} the current data
          */
   }, {
     key: "getPaymentData",
@@ -261,7 +261,7 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
     }() /**
          * Noop, resolves to allow manual refunds.
          * @param {object} payment - payment method data from cart
-         * @returns {string} same data
+         * @return {string} same data
          */
   }, {
     key: "refundPayment",
@@ -285,7 +285,7 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
       return refundPayment;
     }() /**
          * Updates the payment status to cancled
-         * @returns {object} object with canceled status
+         * @return {object} object with canceled status
          */
   }, {
     key: "cancelPayment",
@@ -296,7 +296,7 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
             switch (_context11.prev = _context11.next) {
               case 0:
                 return _context11.abrupt("return", {
-                  status: "canceled"
+                  status: 'canceled'
                 });
               case 1:
               case "end":
@@ -311,8 +311,8 @@ var ManualPaymentService = /*#__PURE__*/function (_PaymentService) {
       return cancelPayment;
     }()
   }]);
-  return ManualPaymentService;
+  return CashfreePaymentService;
 }(_medusaInterfaces.PaymentService);
-(0, _defineProperty2["default"])(ManualPaymentService, "identifier", "cashfree");
-var _default = ManualPaymentService;
+(0, _defineProperty2["default"])(CashfreePaymentService, "identifier", 'cashfree');
+var _default = CashfreePaymentService;
 exports["default"] = _default;

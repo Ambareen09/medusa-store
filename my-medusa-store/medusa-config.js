@@ -48,6 +48,7 @@ const plugins = [
   {
     resolve: `medusa-payment-cashfree`,
     options: {
+      name: "cashfree",
       api_key: STRIPE_API_KEY,
       webhook_secret: STRIPE_WEBHOOK_SECRET,
     },

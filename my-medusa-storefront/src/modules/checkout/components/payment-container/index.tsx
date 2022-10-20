@@ -25,6 +25,10 @@ const PaymentInfoMap: Record<string, { title: string; description: string }> = {
     title: "Test payment",
     description: "Test payment using medusa-payment-manual",
   },
+  cashfree: {
+    title: "Cashfree payment gateway",
+    description: "Test payment using medusa-payment-cashfree",
+  },
 }
 
 const PaymentContainer: React.FC<PaymentContainerProps> = ({

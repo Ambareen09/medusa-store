@@ -36,8 +36,8 @@ const DATABASE_URL =
 const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 
 // Stripe keys
-const STRIPE_API_KEY = process.env.STRIPE_API_KEY || "";
-const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || "";
+const CASHFREE_API_KEY = process.env.CASHFREE_API_KEY || "";
+const CASHFREE_SECRET_KEY = process.env.CASHFREE_SECRET_KEY || "";
 
 // This is the place to include plugins. See API documentation for a thorough guide on plugins.
 const plugins = [
@@ -49,8 +49,8 @@ const plugins = [
     resolve: `medusa-payment-cashfree`,
     options: {
       name: "cashfree",
-      api_key: STRIPE_API_KEY,
-      webhook_secret: STRIPE_WEBHOOK_SECRET,
+      api_key: CASHFREE_API_KEY,
+      api_secret_key: CASHFREE_SECRET_KEY,
     },
   },
 ];

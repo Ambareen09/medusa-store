@@ -53,12 +53,6 @@ Before you start with the tutorial make sure you have
 - add local package using [npm link](https://www.npmjs.com/package/medusa-payment-cashfree) with backend repo
 
 ## Resources
-
-In this section, include links to Medusa’s GitHub repository and documentation. If you think there are any specific documentation pages that can be helpful to understand your submission more, include these specific pages.
-
-For example:
 - [Medusa Plugin's Doc](https://docs.medusajs.com/advanced/backend/plugins/create/)
 - [Medusa’s GitHub repository](https://github.com/medusajs/medusa)
 - [How to Create Services](https://docs.medusajs.com/advanced/backend/services/create-service)
-
-If you also used any other framework, service, or tool, you can include some links to helpful resources related to those tools.

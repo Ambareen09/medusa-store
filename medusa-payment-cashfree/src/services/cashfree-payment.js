@@ -1,20 +1,36 @@
 import {PaymentService} from 'medusa-interfaces';
+const {PaymentGateway} = require('@cashfreepayments/cashfree-sdk');
 
 class CashfreePaymentService extends PaymentService {
   static identifier = 'cashfree';
 
   constructor() {
-    super();
+    super(options);
+    this.options_ = options;
+
+    this.pg = new PaymentGateway({
+      env: options.env,
+      apiVersion: options.api_version,
+      appId: options.api_key_id,
+      secretKey: options.api_key_secret,
+    });
   }
 
   /**
    * Returns the currently held status.
-   * @param {object} paymentData - payment method data from cart
+   * @param {object} order - payment order data from cart
    * @return {string} the status of the payment
    */
-  async getStatus(paymentData) {
-    const {status} = paymentData;
-    return status;
+  async getStatus(cart) {
+    try {
+      const {cart_id} = cart;
+      const response = await this.pg.orders.getLink({orderId: cart_id});
+
+      console.log(response);
+      return response;
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   /**
@@ -22,8 +38,26 @@ class CashfreePaymentService extends PaymentService {
    * @param {object} cart - cart to create a payment for
    * @return {object} an object with staus
    */
-  async createPayment() {
-    return {status: 'pending'};
+  async createPayment(cart) {
+    try {
+      amount = cart.total;
+      const {cart_id, customer_name, email, phone_number, return_url} = cart;
+
+      const response = await this.pg.orders .createOrders({
+        orderId: cart_id,
+        orderAmount: amount,
+        customerName: customer_name,
+        customerPhone: phone_number,
+        customerEmail: email,
+        returnUrl: return_url,
+
+      });
+
+      console.log(response);
+      return response;
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   /**

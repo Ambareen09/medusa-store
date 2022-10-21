@@ -66,7 +66,15 @@ class CashfreePaymentService extends PaymentService {
    * @return {Promise<object>} returns data
    */
   async retrievePayment(data) {
-    return data;
+    try {
+      const {order_id} = data;
+      const response = await this.pg.orders.getDetails({orderId: order_id});
+
+      console.log(response);
+      return response;
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   /**
@@ -74,7 +82,8 @@ class CashfreePaymentService extends PaymentService {
    * @return {Promise<{ status: string, data: object }>} result with data and status
    */
   async authorizePayment() {
-    return {status: 'authorized', data: {status: 'authorized'}};
+    // return {status: 'authorized', data: {status: 'authorized'}};
+    return 'Funtion not allowed';
   }
 
   /**
@@ -83,7 +92,8 @@ class CashfreePaymentService extends PaymentService {
    * @return {object} same data
    */
   async updatePayment(sessionData) {
-    return sessionData.data;
+    // return sessionData.data;
+    return 'Funtion not allowed';
   }
 
   /**
@@ -93,11 +103,13 @@ class CashfreePaymentService extends PaymentService {
    * @return {object} existing data merged with update data
    */
   async updatePaymentData(sessionData, update) {
-    return {...sessionData.data, ...update.data};
+    // return {...sessionData.data, ...update.data};
+    return 'Funtion not allowed';
   }
 
   async deletePayment() {
-    return;
+    // return;
+    return 'Funtion not allowed';
   }
 
   /**
@@ -115,7 +127,8 @@ class CashfreePaymentService extends PaymentService {
    * @return {object} the current data
    */
   async getPaymentData(session) {
-    return session.data;
+    // return session.data;
+    return 'Funtion not allowed';
   }
 
   /**
@@ -124,7 +137,19 @@ class CashfreePaymentService extends PaymentService {
    * @return {string} same data
    */
   async refundPayment(payment) {
-    return payment.data;
+    try {
+      const {order_id, reference_id, redund_amount, refund_note} = payment;
+      const response = await this.pg.refunds.refunds({
+        orderId: order_id,
+        referenceId: reference_id,
+        refundAmount: redund_amount,
+        refundNote: refund_note,
+      });
+      console.log(response);
+      return response;
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   /**
@@ -132,7 +157,8 @@ class CashfreePaymentService extends PaymentService {
    * @return {object} object with canceled status
    */
   async cancelPayment() {
-    return {status: 'canceled'};
+    // return {status: 'canceled'};
+    return 'Funtion not allowed';
   }
 }
 

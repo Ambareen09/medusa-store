@@ -24,7 +24,7 @@ class CashfreePaymentService extends PaymentService {
   async getStatus(cart) {
     try {
       const {cart_id} = cart;
-      const response = await this.pg.orders.getLink({orderId: cart_id});
+      const response = await this.pg.orders.getStatus({orderId: cart_id});
 
       console.log(response);
       return response;

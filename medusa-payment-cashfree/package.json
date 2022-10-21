@@ -2,7 +2,7 @@
   "name": "medusa-payment-cashfree",
   "version": "0.0.1",
   "description": "A starter for Medusa projects.",
-  "author": "Azanul Haque <azanulhaque@gmail.com>",
+  "author": "Azanul Haque <azanulhaque@gmail.com>, Ambareen Azam <ambubush@gmail.com>",
   "license": "MIT",
   "scripts": {
     "seed": "medusa seed -f ./data/seed.json",
@@ -16,12 +16,14 @@
     "medusa-interfaces": "^1.3.0",
     "typeorm": "^0.2.36"
   },
-  "repository": "https://github.com/medusajs/medusa-starter-default.git",
+  "repository": "https://github.com/Azanul/medusa-store",
   "keywords": [
     "sqlite",
     "ecommerce",
     "headless",
-    "medusa"
+    "medusa",
+    "plugin",
+    "cashfree"
   ],
   "devDependencies": {
     "@babel/cli": "^7.18.10",

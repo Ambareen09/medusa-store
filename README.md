@@ -20,7 +20,7 @@ A Cashfree plugin (https://www.cashfree.com/) integrated with MedusaJS for seaml
 
 ### Description
 
-We have made a chasfree plugin which is integrated for MedusaJS. It will provide an addition to payment options available to end users.
+We have made a plugin for integration of Cashfree payment provider with MedusaJS
 
 
 ### Prerequisites

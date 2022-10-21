@@ -1,5 +1,5 @@
 # Medusa Hackathon 2022 - 
-# Cashfree plugin integration with MedusaJS
+# Cashfree Plugin Integration with MedusaJS
 
 ![Medusa Hackathon 2022](https://raw.githubusercontent.com/Ambareen09/hackathon-oct2022-guidelines/main/hackathon-banner.jpg)
 

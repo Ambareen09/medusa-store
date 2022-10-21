@@ -53,6 +53,7 @@ Before you start with the tutorial make sure you have
 - add local package using [npm link](https://www.npmjs.com/package/medusa-payment-cashfree) with backend repo
 
 ## Resources
+- [Cashfree Plugin](https://www.npmjs.com/package/medusa-payment-cashfree)
 - [Medusa Plugin's Doc](https://docs.medusajs.com/advanced/backend/plugins/create/)
 - [Medusa’s GitHub repository](https://github.com/medusajs/medusa)
 - [How to Create Services](https://docs.medusajs.com/advanced/backend/services/create-service)

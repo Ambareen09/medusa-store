@@ -2,13 +2,14 @@
   "name": "medusa-payment-cashfree",
   "version": "0.0.1",
   "description": "A starter for Medusa projects.",
-  "author": "Sebastian Rindom <skrindom@gmail.com>",
+  "author": "Azanul Haque <azanulhaque@gmail.com>",
   "license": "MIT",
   "scripts": {
     "seed": "medusa seed -f ./data/seed.json",
     "build": "babel src -d dist --extensions \".ts,.js\"",
     "start": "medusa develop",
-    "watch": "babel -w src --out-dir . --ignore **/__tests__ --extensions \".ts,.js\""
+    "watch": "babel -w src --out-dir . --ignore **/__tests__ --extensions \".ts,.js\"",
+    "prepare": "cross-env NODE_ENV=production npm run build"
   },
   "peerDependencies": {
     "@medusajs/medusa": "^1.3.1",
